@@ -1,0 +1,38 @@
+O Factory Method, ou "Método de Fábrica," é um padrão de projeto de software utilizado na programação orientada a objetos.
+Ele faz parte do grupo de padrões conhecidos como Padrões de Criação e tem como principal objetivo fornecer uma maneira flexível
+e encapsulada de criar objetos sem especificar diretamente suas classes concretas. Aqui está um resumo do Factory Method:
+
+**Objetivo:**
+O Factory Method permite que você crie objetos sem precisar conhecer a classe exata desses objetos. Em vez disso, você define uma
+interface ou classe abstrata que declara o método de criação, e as subclasses concretas implementam esse método para criar instâncias específicas.
+
+**Componentes Principais:**
+1. **Produto Abstrato:** Uma interface ou classe abstrata que define a estrutura comum dos objetos a serem criados pelas fábricas.
+
+2. **Produto Concreto:** Implementações específicas do Produto Abstrato.
+
+3. **Fábrica Abstrata:** Uma interface ou classe abstrata que declara o método de criação de objetos, geralmente chamado de "factory method."
+
+4. **Fábrica Concreta:** Implementações específicas da Fábrica Abstrata que fornecem a lógica para criar instâncias dos produtos concretos.
+
+**Funcionamento:**
+1. O cliente (ou código cliente) utiliza a Fábrica Abstrata para criar objetos, chamando o "factory method."
+
+2. A Fábrica Abstrata delega a criação do objeto para uma das Fábricas Concretas, que retorna uma instância do Produto Concreto correspondente.
+
+**Benefícios:**
+- **Encapsulação:** O Factory Method promove o encapsulamento, uma vez que o cliente não precisa conhecer as implementações concretas
+ dos objetos, apenas a interface abstrata.
+
+- **Flexibilidade:** É fácil adicionar novos tipos de objetos sem modificar o código existente, criando uma nova Fábrica Concreta.
+
+- **Testabilidade:** Facilita os testes, pois você pode substituir as Fábricas Concretas por versões de teste.
+
+**Exemplo de Uso:**
+Imagine um sistema de criação de documentos onde você possui um Factory Method chamado "createDocument" que pode criar diferentes tipos de
+documentos, como "Document" (Documento genérico), "Spreadsheet" (Planilha) e "Presentation" (Apresentação). As classes concretas
+"DocumentFactory," "SpreadsheetFactory," e "PresentationFactory" implementariam o método "createDocument" para criar os tipos específicos
+de documentos.
+
+Em resumo, o Factory Method é um padrão de projeto que promove a flexibilidade, encapsulamento e extensibilidade em sistemas orientados a
+objetos, permitindo a criação de objetos sem a necessidade de conhecer suas classes concretas.
