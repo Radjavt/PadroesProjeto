@@ -65,7 +65,7 @@ class FabricaMoto implements FabricaTransporte {
     }
 }
 
-// Classe de logística que usa o Factory Method
+// Aplicando Factory Method
 class Logistica {
     public void planejarEntrega(String modo) {
         FabricaTransporte fabrica;
