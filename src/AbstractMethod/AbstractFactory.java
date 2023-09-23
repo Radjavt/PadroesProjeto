@@ -1,7 +1,5 @@
 package AbstractMethod;
 
-import FactoryMethod.MovelFactory;
-
 interface Cadeira{
     void retornar();
 }
@@ -79,19 +77,78 @@ class MesaArtDeco implements Mesa{
 }
 
 interface FabricaMovel{
-    MovelFactory criarMovel();
+    Cadeira criarCadeira();
+    Sofa criarSofa();
+    Mesa criarMesa();
+
 }
 
-class FabricaCadeira implements FabricaMovel{
+class FabricaMovelModerno implements FabricaMovel{
     @Override
-    public MovelFactory criarMovel() {
-        return null;
+    public Cadeira criarCadeira() {
+        return new CadeiraModerna();
+    }
+
+    @Override
+    public Sofa criarSofa() {
+        return new SofaModerna();
+    }
+
+    @Override
+    public Mesa criarMesa() {
+        return new MesaModerna();
     }
 }
+
+class FabricaMovelArtDeco implements FabricaMovel{
+
+    @Override
+    public Cadeira criarCadeira() {
+        return new CadeiraArtDeco();
+    }
+
+    @Override
+    public Sofa criarSofa() {
+        return new SofaArtDeco();
+    }
+
+    @Override
+    public Mesa criarMesa() {
+        return new MesaArtDeco();
+    }
+}
+
+class FabricaMovelVitoriano implements FabricaMovel{
+
+    @Override
+    public Cadeira criarCadeira() {
+        return new CadeiraVitoriano();
+    }
+
+    @Override
+    public Sofa criarSofa() {
+        return new SofaVitoriano();
+    }
+
+    @Override
+    public Mesa criarMesa() {
+        return new MesaVitoriano();
+    }
+}
+
 public class AbstractFactory {
     public static void main(String[] args) {
+        FabricaMovel fabricaModerna = new FabricaMovelModerno();
+        FabricaMovel fabricaArtDeco = new FabricaMovelArtDeco();
+        FabricaMovel fabricaVitoriano = new FabricaMovelVitoriano();
 
+        Cadeira cadeiraModerna = fabricaModerna.criarCadeira();
+        Sofa sofaArtDeco = fabricaArtDeco.criarSofa();
+        Mesa mesaVitoriano = fabricaVitoriano.criarMesa();
+
+
+        cadeiraModerna.retornar();
+        sofaArtDeco.retornar();
+        mesaVitoriano.retornar();
     }
 }
-
-
